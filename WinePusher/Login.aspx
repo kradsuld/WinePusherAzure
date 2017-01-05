@@ -11,8 +11,21 @@
             margin-right: auto;
         }
 
-        .auto-style1 {
-            height: 28px;
+        #login {
+            width: 270px;
+            margin: 0 auto;
+        }
+
+        .auto-style2 {
+            width: 235px;
+        }
+
+        .auto-style5 {
+            height: 30px;
+        }
+
+        .auto-style6 {
+            width: 206px;
         }
     </style>
 </head>
@@ -27,9 +40,57 @@
                 </tr>
                 <tr>
                     <td class="HeaderPadding" style="border-width: 0px; text-align: center">
-                        <asp:Login ID="Login1" runat="server" OnAuthenticate= "ValidateUser" LoginButtonText="Log på" PasswordRequiredErrorMessage="Password skal udfyldes." RememberMeText="Husk mig." TitleText="Log på" UserNameLabelText="Brugernavn:" UserNameRequiredErrorMessage="Brugernavn skal udfyldes.">
-                            <FailureTextStyle ForeColor="Black" />
-                        </asp:Login>
+                        <div id="login">
+                            <asp:Login ID="Login1" runat="server" OnAuthenticate="ValidateUser" LoginButtonText="Log på" PasswordRequiredErrorMessage="Password skal udfyldes." RememberMeText="Husk mig." TitleText="Log på" UserNameLabelText="Brugernavn:" UserNameRequiredErrorMessage="Brugernavn skal udfyldes." Height="196px" Width="267px">
+                                <LayoutTemplate>
+                                    <table style="border-collapse: collapse;">
+                                        <tr>
+                                            <td class="auto-style2">
+                                                <table style="height: 176px; width: 264px">
+                                                    <tr>
+                                                        <td align="center" colspan="2">Log på</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">
+                                                            <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Brugernavn:</asp:Label>
+                                                        </td>
+                                                        <td class="auto-style6">
+                                                            <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="Brugernavn skal udfyldes." ToolTip="Brugernavn skal udfyldes." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="right">
+                                                            <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                                                        </td>
+                                                        <td class="auto-style6">
+                                                            <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password skal udfyldes." ToolTip="Password skal udfyldes." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <asp:CheckBox ID="RememberMe" runat="server" Text="Husk mig" />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center" colspan="2" style="color: Black;">
+                                                            <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center" colspan="2" class="auto-style5">
+                                                            <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log på" ValidationGroup="Login1" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </LayoutTemplate>
+                                <FailureTextStyle ForeColor="Black" />
+                            </asp:Login>
+                        </div>
                     </td>
                 </tr>
             </table>

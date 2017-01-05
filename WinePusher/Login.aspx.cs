@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Web.Security;
-using System.Data;
-using System.Configuration;
-using System.Data.SqlClient;
 
 namespace WinePusher
 {
@@ -15,7 +12,7 @@ namespace WinePusher
 
         protected void ValidateUser(object sender, EventArgs e)
         {
-            if ((Login1.UserName == "Henrik") && (Login1.Password == "winep"))
+            if ((Login1.UserName == "henrik") && (Login1.Password == "winep"))
             {
                 FormsAuthentication.RedirectFromLoginPage(Login1.UserName, Login1.RememberMeSet);
             }
