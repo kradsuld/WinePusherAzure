@@ -85,5 +85,11 @@ namespace WinePusher.BusinessLogic
 
             return wine;
         }
+        public Rounds GetRound(int RoundId)
+        {
+            Rounds round = wpe.Rounds.Where(r => r.Id == RoundId).FirstOrDefault();
+
+            return round;
+        }
     }
 }

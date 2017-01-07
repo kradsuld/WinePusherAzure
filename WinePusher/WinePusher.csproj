@@ -193,6 +193,7 @@
     <Compile Include="Models\MemberListItem.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderListItem.cs" />
+    <Compile Include="Models\Round.cs" />
     <Compile Include="Models\RoundListItem.cs" />
     <Compile Include="Models\Wine.cs" />
     <Compile Include="Orders.cs">

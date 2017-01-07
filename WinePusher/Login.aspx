@@ -48,22 +48,22 @@
                                             <td class="auto-style2">
                                                 <table style="height: 176px; width: 264px">
                                                     <tr>
-                                                        <td align="center" colspan="2">Log på</td>
+                                                        <td style="text-align: center" colspan="2">Log på</td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="right">
+                                                        <td style="border-width: 0px; text-align: right">
                                                             <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Brugernavn:</asp:Label>
                                                         </td>
-                                                        <td class="auto-style6">
+                                                        <td class="auto-style6" style="border-width: 0px; text-align: center">
                                                             <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="Brugernavn skal udfyldes." ToolTip="Brugernavn skal udfyldes." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="right">
+                                                        <td style="border-width: 0px; text-align: right">
                                                             <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
                                                         </td>
-                                                        <td class="auto-style6">
+                                                        <td class="auto-style6" style="border-width: 0px; text-align: center">
                                                             <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password skal udfyldes." ToolTip="Password skal udfyldes." ValidationGroup="Login1">*</asp:RequiredFieldValidator>
                                                         </td>
@@ -74,12 +74,12 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="center" colspan="2" style="color: Black;">
+                                                        <td style="text-align: center" colspan="2" style="color: Black;">
                                                             <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td align="center" colspan="2" class="auto-style5">
+                                                        <td style="text-align: center" colspan="2" class="auto-style5">
                                                             <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log på" ValidationGroup="Login1" />
                                                         </td>
                                                     </tr>

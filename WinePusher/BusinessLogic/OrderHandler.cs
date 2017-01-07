@@ -105,6 +105,17 @@ namespace WinePusher.BusinessLogic
                                                        Delivered = rowmw.row.ro.o.Delivered,
                                                        Paid = rowmw.row.ro.o.Paid,
                                                    }).ToList();
+
+
+            int numberOfOrders = orderListItemList.Count();
+            decimal roundCost = Convert.ToDecimal(wpe.Rounds.Where(r => r.Id == RoundId).FirstOrDefault().Cost);
+
+            foreach (OrderListItem order in orderListItemList)
+            {
+                order.TotalAmount = (decimal)order.TotalAmount + (roundCost / numberOfOrders); 
+            }
+
+
             return orderListItemList;
         }
         public Order GetOrder(int OrderId)

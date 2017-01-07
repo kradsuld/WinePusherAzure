@@ -51,7 +51,7 @@
                                 <asp:BoundField DataField="OrderDate" HeaderText="Dato" DataFormatString="{0:dd/MM/yyyy}" ReadOnly="True" />
                                 <asp:BoundField DataField="MemberName" HeaderText="Medlem" />
                                 <asp:BoundField DataField="Bottles" HeaderText="Flasker" />
-                                <asp:BoundField DataField="TotalAmount" HeaderText="Ordrebeløb" />
+                                <asp:BoundField DataField="TotalAmount" HeaderText="Ordrebeløb" DataFormatString='{0:0.00}' />
                                 <asp:BoundField DataField="Delivered" HeaderText="Delivered" />
                                 <asp:BoundField DataField="Paid" HeaderText="Paid" />
                                 <asp:TemplateField HeaderText="Leveret">
