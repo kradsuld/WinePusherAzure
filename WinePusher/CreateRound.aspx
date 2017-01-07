@@ -44,12 +44,9 @@
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td>
-                                    &nbsp;</td>
-                                <td>
-                                    &nbsp;</td>
-                                <td>
-                                    &nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                             </tr>
                             <tr>
@@ -104,12 +101,30 @@
                                     <asp:Label ID="lblWinePrice" runat="server" Text="Pris"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblWinePriceSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label></td>
+                                    <asp:Label ID="lblWinePriceSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
                                 <td>
                                     <asp:TextBox ID="tbWinePrice" runat="server" ValidationGroup="vgCreateRound"></asp:TextBox>
                                 </td>
                                 <td>
                                     <asp:RegularExpressionValidator ID="rvlWinePrice" runat="server" ControlToValidate="tbWinePrice" ErrorMessage="Skal indeholde tal" ValidationExpression="^\d{0,8}(\,\d{1,4})?$"></asp:RegularExpressionValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="lblCost" runat="server" Text="Omkostninger"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblCostSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="tbCost" runat="server"></asp:TextBox>
+                                    &nbsp;
+                                    <asp:Label ID="lblCostExplain" runat="server" Text="(Fragt og betalingsgebyr) "></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:RegularExpressionValidator ID="rvlCost" runat="server" ControlToValidate="tbCost" ErrorMessage="Skal indeholde tal" ValidationExpression="^\d{0,8}(\,\d{1,4})?$"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                         </table>
@@ -125,7 +140,7 @@
                     <td style="padding: 5px; border-width: 0px; text-align: left; vertical-align: middle;">
                         <asp:Button ID="btnSaveRound" runat="server" Text="Gem runde" OnClick="btnSaveRound_Click" />
                         &nbsp;                
-                        <asp:Button ID="btnBack" runat="server"  CausesValidation="false" Text="Tilbage" OnClick="btnBack_Click" />
+                        <asp:Button ID="btnBack" runat="server" CausesValidation="false" Text="Tilbage" OnClick="btnBack_Click" />
                     </td>
                 </tr>
             </table>

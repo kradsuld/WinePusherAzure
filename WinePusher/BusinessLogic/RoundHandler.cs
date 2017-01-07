@@ -13,12 +13,13 @@ namespace WinePusher.BusinessLogic
         {
         }
 
-        public void CreateRound(int WineId, DateTime RoundDate, string Status)
+        public void CreateRound(int WineId, DateTime RoundDate, decimal Cost, string Status)
         {
             Rounds round = new Rounds();
             round.WineId = WineId;
             round.Date = RoundDate;
             round.Status = Status;
+            round.Cost = Cost;
 
             try
             {
@@ -90,6 +91,23 @@ namespace WinePusher.BusinessLogic
             Rounds round = wpe.Rounds.Where(r => r.Id == RoundId).FirstOrDefault();
 
             return round;
+        }
+
+        public decimal GetRoundCostPerOrder(int RoundId)
+        {
+            var orderCost = wpe.Rounds
+                                   .GroupJoin(wpe.Orders,
+                                     round => round.Id,
+                                     order => order.RoundId,
+                                     (round, order) => new { round, orderCount = (order.Count()) })
+                                   .Where(ro => ro.round.Id == RoundId)
+                                   .Select(x => new
+                                   {
+                                     OrderCount = x.orderCount > 0 ? x.orderCount : 0,
+                                     RoundCost = x.round.Cost,
+                                   }).FirstOrDefault();
+
+            return ((decimal)orderCost.RoundCost / orderCost.OrderCount);
         }
     }
 }

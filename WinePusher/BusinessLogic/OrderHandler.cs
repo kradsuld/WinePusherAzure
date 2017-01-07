@@ -112,7 +112,7 @@ namespace WinePusher.BusinessLogic
 
             foreach (OrderListItem order in orderListItemList)
             {
-                order.TotalAmount = (decimal)order.TotalAmount + (roundCost / numberOfOrders); 
+                order.TotalAmount = (decimal)order.TotalAmount + (roundCost / numberOfOrders);
             }
 
 
@@ -121,33 +121,33 @@ namespace WinePusher.BusinessLogic
         public Order GetOrder(int OrderId)
         {
             Order order = wpe.Orders
-                                     .Join(wpe.Rounds,
-                                                      o => o.RoundId,
-                                                      r => r.Id,
-                                                      (o, r) => new { o, r })
-                                                   .Join(wpe.Wines,
-                                                      ro => ro.r.WineId,
-                                                      w => w.Id,
-                                                      (ro, w) => new { ro, w })
-                                                   .Join(wpe.Members,
-                                                      row => row.ro.o.MemberId,
-                                                      m => m.Id,
-                                                   (row, m) => new { row, m })
-                                                   .Where(rowm => rowm.row.ro.o.Id == OrderId)
-                                                   .Select(rowmw => new Order
-                                                   {
-                                                       OrderId = rowmw.row.ro.o.Id,
-                                                       OrderDate = rowmw.row.ro.o.Date,
-                                                       RoundId = rowmw.row.ro.r.Id,
-                                                       MemberName = rowmw.m.Name,
-                                                       WineName = rowmw.row.w.Name,
-                                                       WineType = rowmw.row.w.Type,
-                                                       WinePrice = (decimal)(rowmw.row.w.Price),
-                                                       Bottles = (int)(rowmw.row.ro.o.Bottles),
-                                                       OrderAmount = (decimal)rowmw.row.w.Price * (decimal)rowmw.row.ro.o.Bottles,
-                                                       Delivered = rowmw.row.ro.o.Delivered,
-                                                       Paid = rowmw.row.ro.o.Paid,
-                                                   }).FirstOrDefault();
+                          .Join(wpe.Rounds,
+                            o => o.RoundId,
+                            r => r.Id,
+                            (o, r) => new { o, r })
+                          .Join(wpe.Wines,
+                            ro => ro.r.WineId,
+                            w => w.Id,
+                            (ro, w) => new { ro, w })
+                          .Join(wpe.Members,
+                            row => row.ro.o.MemberId,
+                            m => m.Id,
+                            (row, m) => new { row, m })
+                          .Where(rowm => rowm.row.ro.o.Id == OrderId)
+                          .Select(rowmw => new Order
+                          {
+                              OrderId = rowmw.row.ro.o.Id,
+                              OrderDate = rowmw.row.ro.o.Date,
+                              RoundId = rowmw.row.ro.r.Id,
+                              MemberName = rowmw.m.Name,
+                              WineName = rowmw.row.w.Name,
+                              WineType = rowmw.row.w.Type,
+                              WinePrice = (decimal)(rowmw.row.w.Price),
+                              Bottles = (int)(rowmw.row.ro.o.Bottles),
+                              OrderAmount = (decimal)rowmw.row.w.Price * (decimal)rowmw.row.ro.o.Bottles,
+                              Delivered = rowmw.row.ro.o.Delivered,
+                              Paid = rowmw.row.ro.o.Paid,
+                          }).FirstOrDefault();
             return order;
         }
     }

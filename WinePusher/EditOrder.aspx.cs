@@ -61,12 +61,11 @@ namespace WinePusher
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            //Response.Redirect(Request.UrlReferrer.ToString());
-            Response.Redirect("ListOrders.aspx?RoundId=" + _roundId);
+           Response.Redirect("ListOrders.aspx?RoundId=" + _roundId);
         }
         protected void ddBottles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbloOrderAmount.Text = (Convert.ToDecimal(ddBottles.SelectedValue) * _winePrice).ToString();
+            lbloOrderAmount.Text = (Convert.ToInt32(ddBottles.SelectedValue) * _winePrice).ToString();
         }
     }
 }

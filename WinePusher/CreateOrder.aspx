@@ -72,7 +72,7 @@
                                     <asp:Label ID="lblNumberOfBottlesSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:DropDownList ID="ddBottles" runat="server">
+                                    <asp:DropDownList ID="ddBottles" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddBottles_SelectedIndexChanged">
                                         <asp:ListItem>1</asp:ListItem>
                                         <asp:ListItem>2</asp:ListItem>
                                         <asp:ListItem>3</asp:ListItem>
@@ -84,6 +84,61 @@
                                 <td>
                                     <asp:RequiredFieldValidator ID="rfvBottles" runat="server" ControlToValidate="ddBottles" ErrorMessage="Vælg antal flasker"></asp:RequiredFieldValidator>
                                 </td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style7">&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="lblTotalWinePrice" runat="server" Text="Vinpris"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblTotalWinePriceSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lbloTotalWinePrice" runat="server" Text="*"></asp:Label>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style7">&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="lblCost" runat="server" Text="Omkostninger"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblCostSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lbloCost" runat="server" Text="*"></asp:Label>                                    
+                                    &nbsp;
+                                    <asp:Label ID="lblTotalAmountExplain" runat="server" Text="(Fragt og betalingsgebyr)"></asp:Label>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style7">&nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                                <td>
+                                    &nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style7">&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="lblTotalAmount" runat="server" Text="Samlet pris"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblTotalAmountSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lbloTotalAmount" runat="server" Text="*"></asp:Label>
+                                </td>
+                                <td>
+                                    &nbsp;</td>
                             </tr>
                         </table>
             </td>

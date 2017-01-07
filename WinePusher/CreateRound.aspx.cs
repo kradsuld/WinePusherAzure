@@ -25,6 +25,7 @@ namespace WinePusher
             RoundHandler rh = new RoundHandler();
             rh.CreateRound(wineId,
                            DateTime.Now,
+                           Convert.ToDecimal(tbCost.Text),
                            "A");
 
             Response.Redirect("WinePusher.aspx");
