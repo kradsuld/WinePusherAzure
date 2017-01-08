@@ -42,7 +42,10 @@
                                 <asp:BoundField DataField="RoundId" Visible="False" />
                                 <asp:BoundField DataField="RoundDate" HeaderText="Dato" DataFormatString="{0:dd/MM/yyyy}" ReadOnly="True" />
                                 <asp:BoundField DataField="WineType" HeaderText="Vintype" />
-                                <asp:BoundField DataField="WineName" HeaderText="Vinnavn" />
+                                <asp:HyperLinkField DataNavigateUrlFields="WineUrl" DataTextField="WineName" Target="_blank" Text="WineName">
+                                    <ControlStyle ForeColor="White" />
+                                    <ItemStyle ForeColor="White" />
+                                </asp:HyperLinkField>
                                 <asp:BoundField DataField="Store" HeaderText="Butik" />
                                 <asp:BoundField DataField="WinePrice" HeaderText="Pris" />
                                 <asp:ButtonField CommandName="listOrders" DataTextField="OrdersCount" HeaderText="Ordrer" Text="OrdersCount">

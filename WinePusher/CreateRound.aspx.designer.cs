@@ -139,6 +139,42 @@ namespace WinePusher {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStore;
         
         /// <summary>
+        /// lblUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUrl;
+        
+        /// <summary>
+        /// lblUrlSpacer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUrlSpacer;
+        
+        /// <summary>
+        /// tbUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbUrl;
+        
+        /// <summary>
+        /// rfvUrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUrl;
+        
+        /// <summary>
         /// lblWinePrice control.
         /// </summary>
         /// <remarks>

@@ -16,11 +16,12 @@ namespace WinePusher
 
         protected void btnSaveRound_Click(object sender, EventArgs e)
         {
-            WineHandler wh = new BusinessLogic.WineHandler();
+            WineHandler wh = new WineHandler();
             int wineId = wh.CreateWine(ddWineTypes.SelectedValue,
                                        tbWineName.Text,
                                        Convert.ToDecimal(tbWinePrice.Text),
-            tbStore.Text);
+            tbStore.Text,
+            tbUrl.Text);
 
             RoundHandler rh = new RoundHandler();
             rh.CreateRound(wineId,

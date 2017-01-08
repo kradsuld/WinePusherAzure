@@ -25,6 +25,7 @@ namespace WinePusher
         public string Name { get; set; }
         public string Store { get; set; }
         public Nullable<decimal> Price { get; set; }
+        public string Url { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rounds> Rounds { get; set; }

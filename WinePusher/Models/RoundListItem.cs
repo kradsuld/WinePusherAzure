@@ -13,6 +13,7 @@ namespace WinePusher.Models
         public string WineType { get; set; }
         public string WineName { get; set; }
         public string Store { get; set; }
+        public string WineUrl { get; set; }
         public Nullable<decimal> WinePrice { get; set; }
         public int OrdersCount { get; set; }
         public string RoundStatus { get; set; }

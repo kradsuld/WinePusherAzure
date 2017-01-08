@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace WinePusher.BusinessLogic
 {
@@ -11,13 +10,14 @@ namespace WinePusher.BusinessLogic
         {
         }
 
-        public int CreateWine(string Type, string Name, decimal Price, string Store)
+        public int CreateWine(string Type, string Name, decimal Price, string Store, string Url)
         {
             Wines wine = new Wines();
             wine.Type = Type;
             wine.Name = Name;
             wine.Price = Price;
             wine.Store = Store;
+            wine.Url = Url;
 
             try
             {

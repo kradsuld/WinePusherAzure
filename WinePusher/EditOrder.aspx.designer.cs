@@ -175,6 +175,33 @@ namespace WinePusher {
         protected global::System.Web.UI.WebControls.Label lbloWinePrice;
         
         /// <summary>
+        /// lblRoundCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRoundCost;
+        
+        /// <summary>
+        /// lblRoundCostSpacer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRoundCostSpacer;
+        
+        /// <summary>
+        /// lbloRoundCost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbloRoundCost;
+        
+        /// <summary>
         /// lblBottles control.
         /// </summary>
         /// <remarks>

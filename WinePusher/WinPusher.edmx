@@ -46,6 +46,7 @@
           <Property Name="Name" Type="varchar" MaxLength="50" />
           <Property Name="Store" Type="varchar" MaxLength="50" />
           <Property Name="Price" Type="decimal" Precision="15" Scale="2" />
+          <Property Name="Url" Type="varchar" MaxLength="500" />
         </EntityType>
         <Association Name="FK_Orders_ToMembers">
           <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
@@ -152,6 +153,7 @@
           <Property Name="Store" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Price" Type="Decimal" Precision="15" Scale="2" />
           <NavigationProperty Name="Rounds" Relationship="Self.FK_Rounds_ToWines" FromRole="Wines" ToRole="Rounds" />
+          <Property Name="Url" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Orders_ToMembers">
           <End Role="Members" Type="Self.Members" Multiplicity="0..1" />
@@ -251,6 +253,7 @@
           <EntitySetMapping Name="Wines">
             <EntityTypeMapping TypeName="WinePusherDBModel.Wines">
               <MappingFragment StoreEntitySet="Wines">
+                <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

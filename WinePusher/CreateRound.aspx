@@ -98,6 +98,21 @@
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>
+                                    <asp:Label ID="lblUrl" runat="server" Text="Link til vinen"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblUrlSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="tbUrl" runat="server"></asp:TextBox>
+                                </td>
+                                <td>
+                                    <asp:RequiredFieldValidator ID="rfvUrl" runat="server" ControlToValidate="tbUrl" ErrorMessage="Link skal udfyldes"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
                                     <asp:Label ID="lblWinePrice" runat="server" Text="Pris"></asp:Label>
                                 </td>
                                 <td>

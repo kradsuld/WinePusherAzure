@@ -92,9 +92,22 @@
                                     <asp:Label ID="lblWinePrice" runat="server" Text="Pris"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblWinePriceSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label></td>
+                                    <asp:Label ID="lblWinePriceSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
                                 <td>
                                     <asp:Label ID="lbloWinePrice" runat="server" Text="WinePrice*"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="lblRoundCost" runat="server" Text="Ekstraomkostninger"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblRoundCostSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lbloRoundCost" runat="server" Text="RoundCost*"></asp:Label>
                                 </td>
                             </tr>
                             <tr>

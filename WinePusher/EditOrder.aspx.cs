@@ -8,6 +8,7 @@ namespace WinePusher
     public partial class EditOrder : System.Web.UI.Page
     {
         private int _roundId;
+        private decimal _roundCost;
         private decimal _winePrice;
         private int _orderId;
 
@@ -26,10 +27,12 @@ namespace WinePusher
             _roundId = order.RoundId;
             _winePrice = order.WinePrice;
 
+            RoundHandler rh = new RoundHandler();
+            _roundCost = rh.GetRoundCostPerOrder(_roundId);
+
             if (!IsPostBack)
             {
                 lbloMemberName.Text = order.MemberName;
-                lbloOrderAmount.Text = order.OrderAmount.ToString();
                 lbloOrderDate.Text = order.OrderDate.ToString();
                 lbloWineName.Text = order.WineName;
                 lbloWinePrice.Text = order.WinePrice.ToString();
@@ -37,6 +40,9 @@ namespace WinePusher
                 ddBottles.SelectedValue = order.Bottles.ToString();
                 ddDeliveredMark.SelectedValue = order.Delivered;
                 ddPaidMark.SelectedValue = order.Paid;
+                
+                lbloRoundCost.Text = _roundCost.ToString("0.00");
+                lbloOrderAmount.Text = GetTotalOrderAmount(Convert.ToInt32(ddBottles.SelectedValue));
             }
         }
 
@@ -61,11 +67,15 @@ namespace WinePusher
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {
-           Response.Redirect("ListOrders.aspx?RoundId=" + _roundId);
+            Response.Redirect("ListOrders.aspx?RoundId=" + _roundId);
         }
         protected void ddBottles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lbloOrderAmount.Text = (Convert.ToInt32(ddBottles.SelectedValue) * _winePrice).ToString();
+            lbloOrderAmount.Text = GetTotalOrderAmount(Convert.ToInt32(ddBottles.SelectedValue));
+        }
+        private string GetTotalOrderAmount(int bottles)
+        {
+            return (((decimal)_winePrice * bottles) + _roundCost).ToString("0.00");
         }
     }
 }
