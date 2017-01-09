@@ -25,11 +25,11 @@ namespace WinePusher
 
         protected void gvRoundsList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "addOrder")
+            if (e.CommandName == "editRound")
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 int roundId = Convert.ToInt32(gvRoundsList.DataKeys[index].Value);
-                Response.Redirect("CreateOrder.aspx?RoundId=" + roundId);
+                //Response.Redirect("EditRound.aspx?RoundId=" + roundId);
             }
 
             if (e.CommandName == "listOrders")

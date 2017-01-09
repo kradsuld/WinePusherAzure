@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using WinePusher.Models;
 
@@ -18,12 +19,51 @@ namespace WinePusher.BusinessLogic
             Rounds round = new Rounds();
             round.WineId = WineId;
             round.Date = RoundDate;
-            round.Status = Status;
             round.Cost = Cost;
+            round.Status = Status;
 
             try
             {
                 wpe.Rounds.Add(round);
+                wpe.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void UpdateRound(int RoundId, int WineId, DateTime RoundDate, decimal Cost, string Status)
+        {
+            Rounds round = new Rounds();
+            round = wpe.Rounds.Where(r => r.Id == RoundId).SingleOrDefault();
+
+            round.WineId = WineId;
+            round.Date = RoundDate;
+            round.Cost = Cost;
+            round.Status = Status;
+
+            wpe.Entry(round).State = EntityState.Modified;
+
+            try
+            {
+                wpe.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void UpdateRound(int RoundId, string Status)
+        {
+            Rounds round = new Rounds();
+            round = wpe.Rounds.Where(r => r.Id == RoundId).SingleOrDefault();
+
+            round.Status = Status;
+
+            wpe.Entry(round).State = EntityState.Modified;
+
+            try
+            {
                 wpe.SaveChanges();
             }
             catch (Exception ex)
@@ -105,8 +145,8 @@ namespace WinePusher.BusinessLogic
                                    .Where(ro => ro.round.Id == RoundId)
                                    .Select(x => new
                                    {
-                                     OrderCount = x.orderCount > 0 ? x.orderCount : 0,
-                                     RoundCost = x.round.Cost,
+                                       OrderCount = x.orderCount > 0 ? x.orderCount : 0,
+                                       RoundCost = x.round.Cost,
                                    }).FirstOrDefault();
 
             return ((decimal)orderCost.RoundCost / orderCost.OrderCount);

@@ -105,6 +105,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EditRound.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\WinePusher - Web Deploy.pubxml" />
@@ -158,6 +159,13 @@
     </Compile>
     <Compile Include="CreateOrder.aspx.designer.cs">
       <DependentUpon>CreateOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditRound.aspx.cs">
+      <DependentUpon>EditRound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditRound.aspx.designer.cs">
+      <DependentUpon>EditRound.aspx</DependentUpon>
     </Compile>
     <Compile Include="CreateRound.aspx.cs">
       <DependentUpon>CreateRound.aspx</DependentUpon>

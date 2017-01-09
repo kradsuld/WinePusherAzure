@@ -35,14 +35,14 @@
                     <td class="HeaderPadding" style="border-width: 0px; text-align: center">
                         <asp:GridView ID="gvRoundsList" OnRowCommand="gvRoundsList_RowCommand" runat="server" AutoGenerateColumns="False" AllowSorting="True" BackColor="#990000" CellPadding="5" Width="100%" BorderStyle="Groove" HorizontalAlign="Center" DataKeyNames="RoundId">
                             <Columns>
-                                <asp:ButtonField ButtonType="Image" CommandName="addOrder" Text="Tilføj ordre" ImageUrl="~/Images/insert.png">
+                                <asp:ButtonField ButtonType="Image" CommandName="editRound" Text="Ret runde" ImageUrl="~/Images/edit.png">
                                     <ControlStyle ForeColor="White" />
                                     <ItemStyle ForeColor="White" />
                                 </asp:ButtonField>
                                 <asp:BoundField DataField="RoundId" Visible="False" />
                                 <asp:BoundField DataField="RoundDate" HeaderText="Dato" DataFormatString="{0:dd/MM/yyyy}" ReadOnly="True" />
                                 <asp:BoundField DataField="WineType" HeaderText="Vintype" />
-                                <asp:HyperLinkField DataNavigateUrlFields="WineUrl" DataTextField="WineName" Target="_blank" Text="WineName">
+                                <asp:HyperLinkField DataNavigateUrlFields="WineUrl" DataTextField="WineName"  HeaderText="Vinnavn" Target="_blank">
                                     <ControlStyle ForeColor="White" />
                                     <ItemStyle ForeColor="White" />
                                 </asp:HyperLinkField>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateRound.aspx.cs" Inherits="WinePusher.CreateRound" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EditRound.aspx.cs" Inherits="WinePusher.EditRound" %>
 
 <!DOCTYPE html>
 
@@ -22,10 +22,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
-        .auto-style7 {
-            width: 20px;
-        }
     </style>
 </head>
 <body>
@@ -41,9 +37,9 @@
                     <td style="border-width: 0px;">
                         <table style="width: 100%;">
                             <tr>
-                                <td class="auto-style7">&nbsp;</td>
+                                <td>&nbsp;</td>
                                 <td colspan="4">
-                                    <asp:Label ID="lblCreateRound" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Opret runde"></asp:Label>
+                                    <asp:Label ID="lblCreateRound" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Ret runde"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -59,11 +55,9 @@
                                     <asp:Label ID="lblWineType" runat="server" Text="Vintype"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblWineTypeSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
-                                </td>
+                                    <asp:Label ID="lblWineTypeSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label></td>
                                 <td>
                                     <asp:DropDownList ID="ddWineTypes" runat="server">
-                                        <asp:ListItem Value="NA">&lt;-- Vælg vintype --&gt;</asp:ListItem>
                                         <asp:ListItem>Rødvin</asp:ListItem>
                                         <asp:ListItem>Hvidvin</asp:ListItem>
                                         <asp:ListItem>Sherry</asp:ListItem>
@@ -71,9 +65,7 @@
                                         <asp:ListItem>Bobler</asp:ListItem>
                                     </asp:DropDownList>
                                 </td>
-                                <td>
-                                    <asp:RequiredFieldValidator ID="rfvWineType" runat="server" ControlToValidate="ddWineTypes" ErrorMessage="Vælg vintype"></asp:RequiredFieldValidator>
-                                </td>
+                                <td>&nbsp;</td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -148,6 +140,24 @@
                                 </td>
                                 <td>
                                     <asp:RegularExpressionValidator ID="rvlCost" runat="server" ControlToValidate="tbCost" ErrorMessage="Skal indeholde tal" ValidationExpression="^\d{0,8}(\,\d{1,4})?$"></asp:RegularExpressionValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label ID="lblStatus" runat="server" Text="Status"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblStatusSpacer" runat="server" Text=": &amp;nbsp;"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:DropDownList ID="ddStatus" runat="server">
+                                        <asp:ListItem Value="A">Aktiv</asp:ListItem>
+                                        <asp:ListItem Value="C">Lukket</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                                <td>
+                                    <asp:RequiredFieldValidator ID="rfvStatus" runat="server" ControlToValidate="ddStatus" ErrorMessage="Vælg medlem"></asp:RequiredFieldValidator>
                                 </td>
                             </tr>
                         </table>
