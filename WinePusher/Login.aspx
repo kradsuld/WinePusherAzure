@@ -41,7 +41,7 @@
                 <tr>
                     <td class="HeaderPadding" style="border-width: 0px; text-align: center">
                         <div id="login">
-                            <asp:Login ID="Login1" runat="server" OnAuthenticate="ValidateUser" LoginButtonText="Log på" PasswordRequiredErrorMessage="Password skal udfyldes." RememberMeText="Husk mig." TitleText="Log på" UserNameLabelText="Brugernavn:" UserNameRequiredErrorMessage="Brugernavn skal udfyldes." Height="196px" Width="267px">
+                            <asp:Login ID="Login1" runat="server" OnAuthenticate="ValidateUser" LoginButtonText="Log på" PasswordRequiredErrorMessage="Password skal udfyldes." RememberMeText="Husk mig." TitleText="Log på" UserNameLabelText="Brugernavn:" UserNameRequiredErrorMessage="Brugernavn skal udfyldes." Height="196px" Width="267px" FailureText="Dit login-forsøg gik ikke godt. Venligst prøv igen.">
                                 <LayoutTemplate>
                                     <table style="border-collapse: collapse;">
                                         <tr>
