@@ -8,6 +8,7 @@ namespace WinePusher
     public partial class EditRound : System.Web.UI.Page
     {
         private int _roundId;
+        private int _wineId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,45 +16,52 @@ namespace WinePusher
             {
                 FormsAuthentication.RedirectToLoginPage();
             }
-
             _roundId = Convert.ToInt32(Request.QueryString["RoundId"]);
 
             RoundHandler rh = new RoundHandler();
-            //Round round = rh.GetRound(_roundId);
+            Round round = rh.GetRound(_roundId);
 
-            if (!IsPostBack)
+            _wineId = round.WineId;
+
+            if (!Page.IsPostBack)
             {
-                //ddWineTypes.SelectedValue
-                //tbWineName.Text = 
-                //tbStore.Text =
-                //tbUrl.Text = 
-                //tbWinePrice.Text = 
-                //tbCost.Text = 
-                //ddStatus.SelectedValue =
+                ddWineTypes.SelectedValue = round.WineType;
+                tbWineName.Text = round.WineName;
+                tbStore.Text = round.Store;
+                tbUrl.Text = round.Url;
+                tbWinePrice.Text = round.WinePrice.ToString("0.00");
+                tbCost.Text = round.Cost.ToString("0.00");
+                ddStatus.SelectedValue = round.Status;
             }
         }
 
         protected void btnSaveRound_Click(object sender, EventArgs e)
         {
-            //TODO
             WineHandler wh = new WineHandler();
-            int wineId = wh.CreateWine(ddWineTypes.SelectedValue,
-                                       tbWineName.Text,
-                                       Convert.ToDecimal(tbWinePrice.Text),
-            tbStore.Text,
-            tbUrl.Text);
+            wh.UpdateWine(_wineId,
+                ddWineTypes.SelectedValue,
+                tbWineName.Text,
+                tbStore.Text,
+                tbUrl.Text,
+                Convert.ToDecimal(tbWinePrice.Text));
 
             RoundHandler rh = new RoundHandler();
-            rh.CreateRound(wineId,
-                           DateTime.Now,
+            rh.UpdateRound(_roundId,
                            Convert.ToDecimal(tbCost.Text),
-                           "A");
+                           ddStatus.SelectedValue);
+
+            Response.Redirect("WinePusher.aspx");
+        }
+        protected void btnDeleteRound_Click(object sender, EventArgs e)
+        {
+            RoundHandler rh = new RoundHandler();
+            rh.UpdateRound(_roundId,
+                           "D");
 
             Response.Redirect("WinePusher.aspx");
         }
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            //Response.Redirect(Request.UrlReferrer.ToString());
             Response.Redirect("WinePusher.aspx");
         }
     }

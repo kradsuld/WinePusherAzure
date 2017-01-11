@@ -32,13 +32,11 @@ namespace WinePusher.BusinessLogic
                 throw ex;
             }
         }
-        public void UpdateRound(int RoundId, int WineId, DateTime RoundDate, decimal Cost, string Status)
+        public void UpdateRound(int RoundId, decimal Cost, string Status)
         {
             Rounds round = new Rounds();
             round = wpe.Rounds.Where(r => r.Id == RoundId).SingleOrDefault();
 
-            round.WineId = WineId;
-            round.Date = RoundDate;
             round.Cost = Cost;
             round.Status = Status;
 
@@ -128,9 +126,22 @@ namespace WinePusher.BusinessLogic
 
             return wine;
         }
-        public Rounds GetRound(int RoundId)
+        public Round GetRound(int RoundId)
         {
-            Rounds round = wpe.Rounds.Where(r => r.Id == RoundId).FirstOrDefault();
+            Round round = wpe.Rounds
+                .Join(wpe.Wines, r => r.WineId, w => w.Id, (r, w) => new { r, w })
+                        .Where(ws => ws.r.Id == RoundId)
+                        .Select(rw => new Round
+                        {
+                            WineId = rw.w.Id,
+                            WineType = rw.w.Type,
+                            WineName = rw.w.Name,
+                            WinePrice = (decimal)rw.w.Price,
+                            Store = rw.w.Store,
+                            Url = rw.w.Url,
+                            Cost = (decimal)rw.r.Cost,
+                            Status = rw.r.Status,
+                        }).FirstOrDefault();
 
             return round;
         }

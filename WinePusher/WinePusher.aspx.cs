@@ -29,7 +29,7 @@ namespace WinePusher
             {
                 int index = Convert.ToInt32(e.CommandArgument);
                 int roundId = Convert.ToInt32(gvRoundsList.DataKeys[index].Value);
-                //Response.Redirect("EditRound.aspx?RoundId=" + roundId);
+                Response.Redirect("EditRound.aspx?RoundId=" + roundId);
             }
 
             if (e.CommandName == "listOrders")

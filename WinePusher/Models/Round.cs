@@ -8,10 +8,13 @@ namespace WinePusher.Models
 {
     class Round
     {
-        public int RoundId { get; set; }
         public int WineId { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public string WineType { get; set; }
+        public string WineName { get; set; }
+        public string Store { get; set; }
+        public string Url { get; set; }
+        public decimal WinePrice { get; set; }
+        public decimal Cost { get; set; }
         public string Status { get; set; }
-        public Nullable<decimal> Cost { get; set; }
     }
 }
